@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Search Results</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+</head>
+<body>
+    <div class="container2">
+        <h1 class="heading1">Search Results</h1>
+        <p class="label">User Query: {{ user_query }}</p>
+
+        {% if similar_lines %}
+            <h2 class="heading2">Similar Lines Found:</h2>
+            <ul>
+                {% for page, line, similarity in similar_lines %}
+                    <li>Page: {{ page }}, Line: {{ line }}, Similarity: {{ similarity }}</li>
+                {% endfor %}
+            </ul>
+        {% elif no_results %}
+            <p>No similar lines found.</p>
+        {% endif %}
+        <h3>Page to Go : {{ max_page }}</h3>
+    </div>
+</body>
+</html>

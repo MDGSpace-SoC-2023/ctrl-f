@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+<body>
+    <div class="containers">
+        <h1 class="heading1">Dashboard</h1><br>
+        <p class="label">Welcome to your dashboard, {{ current_user }}!</p><br>
+
+        <form method="post" action="{{ url_for('dashboard') }}">
+            <label for="option" class="label">Choose an option:</label>
+            <select name="option" id="option" class="input">
+                <option value="Library">Library</option>
+                <option value="Search">Search</option>
+            </select>
+            <button type="submit" class="button">Go</button>
+    </div>
+    </form

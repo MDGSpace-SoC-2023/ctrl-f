@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Library</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container2">
+        <h1 class="heading1">Library</h1>
+        <h2 class="heading2">Existing Books</h2>
+        <ul>
+            {% for book in books %}
+            <li><a href="{{ url_for('view_book', filename=book) }}" target="_blank">{{ book }}</a></li>
+            {% endfor %}
+        </ul>
+        <h2 class="heading2">Upload New Book</h2>
+        <form method="POST" enctype="multipart/form-data">
+            <input type="file" name="file" class="input">
+            <button type="submit" class="button" id="upload">Upload</button>
+        </form>
+    </div>
+</body>
+</html>

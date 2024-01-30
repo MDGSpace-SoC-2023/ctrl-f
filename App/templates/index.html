@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Text Search</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}"> 
+</head>
+<body>
+    <div class="containersss">
+        <h1 class="heading1 ">Text Search in Book</h1>
+    <form action="/search" method="post" enctype="multipart/form-data">
+        <label for="user_query" class="label">Enter text:</label>
+        <textarea id="user_query" name="user_query" rows="4" cols="50" class="input"></textarea>
+        <br>
+        <label for="file" class="UploadImage" class="label">Upload Image:</label>
+        <input type="file" name="file" accept=".png, .jpg, .jpeg" class="input">
+        <br>
+        <label for="selected_book" class="label" id="book">Choose a Book:</label>
+        <select name="filename" class="label2">
+            {% for book in books %}
+            <option value="{{ book.filename }}" class="input">{{ book.filename }}</option>
+            {% endfor %}
+        </select>
+        <input type="submit" value="Search" class="search">
+    </form>
+</div>
+</body>
+</html>
